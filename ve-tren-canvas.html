@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ trên canvas</title>
+</head>
+<body>
+<!--THẺ <canvas> trong HTML được dùng để vẽ các hình ảnh trong trang web.-->
+
+<!--    // VD: mã HTML để định nghĩa một canvas là như sau:-->
+<!--    // <canvas id="myCanvad" width="200" height="100"></canvas>-->
+<!--    // trong đó:* while và height là các thuộc tính để quy định kích thước của canvas-->
+<!--    //          * id là thuộc tính để chúng ta có thể truy xuất được đối tượng canvas này từ mã js( thông qua phương thức document.getElementByld()).-->
+<!--    -->
+
+<!--VD: vẽ đường thẳng-->
+<!--Chúng ta sử dụng phương thức lineTo() để vẽ một đường thẳng.-->
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+    Your browser does not support the HTML5 canvas tag.</canvas>
+    <script>
+       let c = document.getElementById("myCanvas");
+       let ctx = c.getContext("2d");//Đối tượng getContext(“2d”) trong HTML5 sở hữu nhiều hàm dành cho vẽ hình ảnh như hình hộp, hình tròn, chữ,… 2 dòng sau vẽ ra một hình chữ nhật:
+       ctx.moveTo(0,0);//bắt đầu một đường dẫ, di chuyển đến vị trí 0,0
+       ctx.lineTo(200,100);//tạo một dòng đến vị trí 200,100
+       ctx.stroke();//Phương thức stroke() để hiển thị nét vẽ mà bạn đã định nghĩa với các phương thức moveTo() và lineTo(). Mặc định là màu đen.
+       //Mẹo: Sử dụng thuộc tính strokeStyle để thêm màu / dải màu.
+
+    </script>
+
+<!--VD: vẽ đường tròn-->
+<!--Chúng ta sử dụng phương thức arc() để vẽ một đường tròn.-->
+<!--Dùng chung html ở trên-->
+     <script>
+         let c = document.getElementById("myCanvas");
+         let ctx = c.getContext("2d");
+         ctx.beginPath();//Phương thức beginPath() dùng để bắt đầu nét vẽ hoặc thiết lập lại nét vẽ hiện tại.
+         //Mẹo: Sử dụng phương thức moveTo(), lineTo(), quadraticCurveTo(), bezierCurveTo(), arcTo() và arc() để tạo nét vẽ.
+         ctx.arc(95,50,40,0,2*Math.PI);//Phương thức arc() dùng để tạo một  đường tròn/đường cong (sử dụng để tạo đường tròn hoặc một phần của đường tròn).
+         //Math.PI = 3,14
+         ctx.stroke();
+     </script>
+
+
+<!--VD:Vẽ chữ-->
+<!--Chúng ta sử dụng phương thức fillText() hoặc strokeText() để vẽ chữ.-->
+<script>
+    let c = document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
+    ctx.font = "30px Arial";
+    ctx.fillText("Hello World",10,50);
+
+
+
+    //HOẶC:
+
+    let c = document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
+    ctx.font = "30px Arial";
+    ctx.strokeText("Hello World",10,50);
+</script>
+</body>
+</html>
